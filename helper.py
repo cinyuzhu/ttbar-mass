@@ -19,16 +19,12 @@ def GetLorenzP4List(tree, obj):
     p4s, __pts, __etas, __phis, __es = [], [], [], [], []
     # read from the entry
     
-    if obj == 'mu':
-        __pts = getattr(tree, "mu_pt")
-        __etas = getattr(tree, "mu_eta")
-        __phis = getattr(tree, "mu_phi")
-        __es = getattr(tree, "mu_e")
-    elif obj == 'el':
-        __pts = getattr(tree, "el_pt")
-        __etas = getattr(tree, "el_eta")
-        __phis = getattr(tree, "el_phi")
-        __es = getattr(tree, "el_e")
+    if obj == 'mu' or obj == 'el':
+        __pts = getattr(tree, obj + "_pt")
+        __etas = getattr(tree, obj + "_eta")
+        __phis = getattr(tree, obj + "_phi")
+        __es = getattr(tree, obj + "_e")
+
     elif obj == 'bjet':
         __tags = ROOT.vector('string')()
         __tags = getattr(tree, "jet_isbtagged_DL1r_77")
@@ -43,7 +39,13 @@ def GetLorenzP4List(tree, obj):
                 __pts.append(__pts_all[i])
                 __etas.append(__etas_all[i])
                 __phis.append(__phis_all[i])
-                __es.append(__es_all[i]) 
+                __es.append(__es_all[i])
+    elif obj == 'lep':
+        # strictly for dilep final state
+        p4s_el = GetLorenzP4List(tree,'el')
+        p4s_mu = GetLorenzP4List(tree,'mu')
+        p4s = getp4s_lep(p4s_el, p4s_mu)
+        return p4s
     else:
         print("this object is not defined in the function !")
         return []
@@ -100,9 +102,36 @@ def minimax(p4s_a, p4s_b):
     index2 = np.array([masses[0,indices[0]], masses[1,indices[1]]]).argmin()
     # return the found index of 1st obj, 2nd obj
     return index2, indices[index2] 
+
+def minimax_cross(p4s_a, p4s_b):
+    """
+    get the index of minimax cross pair b+l, return index_a, index_b
+    $m_{bl}^{minimax}  = min(max(m_{b1l1},m_{b2l2}), max(m_{b1l2},m_{b2l1}))$
     
+    """
+    # in this algorithms, particle a and b are symmetrical
+    masses = np.empty((2,2))
+    for i, p4_a in enumerate(p4s_a):
+        for j, p4_b in enumerate(p4s_b):
+            # get the max m_b?li, save the idx
+            masses[i,j] = (p4_a + p4_b).M()/1000
+    # print("mass:")
+    # print(masses)
+    
+    # sorry, i know it looks stupid
+    idx0 = np.array([masses[0,0],masses[1,1]]).argmax() # -> max = masses[idx0, idx0]
+    idx1 = np.array([masses[0,1],masses[1,0]]).argmax() # -> max = masses[idx1, 1-idx1]
+    idx = np.array([masses[idx0, idx0], masses[idx1, 1-idx1]]).argmin()
 
-
-
+    if idx == 0: return idx0, idx0
+    if idx == 1: return idx1, 1-idx1
 
     
+def p4_from_pt_eta_phi_m(tree, prefix):
+    __pt = getattr(tree, prefix+"_pt")
+    __eta = getattr(tree, prefix+"_eta")
+    __phi = getattr(tree, prefix+"_phi")
+    __m = getattr(tree, prefix+"_m")
+    p4 = TLorentzVector()
+    p4.SetPtEtaPhiM(__pt,__eta,__phi, __m)
+    return p4
