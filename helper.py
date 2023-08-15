@@ -135,3 +135,43 @@ def p4_from_pt_eta_phi_m(tree, prefix):
     p4 = TLorentzVector()
     p4.SetPtEtaPhiM(__pt,__eta,__phi, __m)
     return p4
+
+
+def get_leptons_from_truth(prefixes, tree):
+    """
+    return el/mu/tau p4 in the order of [lep from t, lep from tbar]
+    """
+    p4s_truth_lep = [] # first element from t, second element from tbar
+    for j, prefix in enumerate(prefixes):
+        id = getattr(tree, prefix + "_pdgId")
+        if abs(id) == 11 or abs(id) == 13 or abs(id) == 15:
+        # if abs(id) == 11 or abs(id) == 13:
+                # skip tau events
+                p4s_truth_lep.append(p4_from_pt_eta_phi_m(tree, prefix))
+    
+    return p4s_truth_lep
+
+def deltaR_match(p4s_truth, p4s_nom, maxdR = 0.4):
+    """
+    input: [truth_from_t,truth_from_tbat];nominal p4
+    output:[nominal_from_t, nominal_from_tbar]; 
+    unique match
+    """
+    if len(p4s_truth) != 2 or len(p4s_nom) != 2: return []
+    p4s_match = []
+    indices = [] # [indices match with t, with tbar]
+    for p4_truth in p4s_truth:
+        dRs = []
+        for p4_nom in p4s_nom:
+            dR = ROOT.Math.VectorUtil.DeltaR(p4_truth, p4_nom)
+            dRs.append(dR)
+        idx = np.array(dRs).argmin()
+
+        if dRs[idx] > 0.4: return []
+        indices.append(idx)
+        p4s_match.append(p4s_nom[idx])
+    
+    if indices[0] == indices[1]: return []
+    return p4s_match
+
+
