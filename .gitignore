@@ -140,6 +140,7 @@ dmypy.json
 *.o
 *.out
 .__*
+ConnectTrees
 
 # data source and outpus
 *.tar.gz

@@ -1,0 +1,278 @@
+--------------------------------truth--------------------------------------------
+ULong64_t       eventNumber;
+
+Int_t           MC_Wdecay2_from_tbar_pdgId;
+Float_t         MC_Wdecay2_from_tbar_pt;
+Float_t         MC_Wdecay2_from_tbar_eta;
+Float_t         MC_Wdecay2_from_tbar_phi;
+Float_t         MC_Wdecay2_from_tbar_m;
+
+Int_t           MC_Wdecay1_from_t_pdgId;
+Float_t         MC_Wdecay1_from_t_pt;
+Float_t         MC_Wdecay1_from_t_eta;
+Float_t         MC_Wdecay1_from_t_phi;
+Float_t         MC_Wdecay1_from_t_m;
+
+Int_t           MC_Wdecay2_from_t_pdgId;
+Float_t         MC_Wdecay2_from_t_pt;
+Float_t         MC_Wdecay2_from_t_eta;
+Float_t         MC_Wdecay2_from_t_phi;
+Float_t         MC_Wdecay2_from_t_m;
+
+
+Int_t           MC_Wdecay1_from_tbar_pdgId;
+Float_t         MC_Wdecay1_from_tbar_pt;
+Float_t         MC_Wdecay1_from_tbar_eta;
+Float_t         MC_Wdecay1_from_tbar_phi;
+Float_t         MC_Wdecay1_from_tbar_m;
+
+
+Float_t         MC_b_from_t_pt;
+Float_t         MC_b_from_t_eta;
+Float_t         MC_b_from_t_phi;
+Float_t         MC_b_from_t_m;
+
+Float_t         MC_W_from_t_pt;
+Float_t         MC_W_from_t_eta;
+Float_t         MC_W_from_t_phi;
+Float_t         MC_W_from_t_m;
+
+
+Float_t         MC_b_from_tbar_pt;
+Float_t         MC_b_from_tbar_eta;
+Float_t         MC_b_from_tbar_phi;
+Float_t         MC_b_from_tbar_m;
+
+
+Float_t         MC_W_from_tbar_pt;
+Float_t         MC_W_from_tbar_eta;
+Float_t         MC_W_from_tbar_phi;
+Float_t         MC_W_from_tbar_m;
+
+Float_t         MC_ttbar_afterFSR_beforeDecay_pt;
+Float_t         MC_ttbar_afterFSR_beforeDecay_eta;
+Float_t         MC_ttbar_afterFSR_beforeDecay_phi;
+Float_t         MC_ttbar_afterFSR_beforeDecay_m;
+
+
+Float_t         MC_ttbar_afterFSR_pt;
+Float_t         MC_ttbar_afterFSR_eta;
+Float_t         MC_ttbar_afterFSR_phi;
+Float_t         MC_ttbar_afterFSR_m;
+
+Float_t         MC_ttbar_beforeFSR_pt;
+Float_t         MC_ttbar_beforeFSR_eta;
+Float_t         MC_ttbar_beforeFSR_phi;
+Float_t         MC_ttbar_beforeFSR_m;
+
+
+Float_t         MC_t_afterFSR_SC_pt;
+Float_t         MC_t_afterFSR_SC_eta;
+Float_t         MC_t_afterFSR_SC_phi;
+Float_t         MC_t_afterFSR_SC_m;
+
+Float_t         MC_t_beforeFSR_pt;
+Float_t         MC_t_beforeFSR_eta;
+Float_t         MC_t_beforeFSR_phi;
+Float_t         MC_t_beforeFSR_m;
+
+Float_t         MC_tbar_beforeFSR_pt;
+Float_t         MC_tbar_beforeFSR_eta;
+Float_t         MC_tbar_beforeFSR_phi;
+Float_t         MC_tbar_beforeFSR_m;
+
+Float_t         MC_t_afterFSR_pt;
+Float_t         MC_t_afterFSR_eta;
+Float_t         MC_t_afterFSR_phi;
+Float_t         MC_t_afterFSR_m;
+
+Float_t         MC_tbar_afterFSR_pt;
+Float_t         MC_tbar_afterFSR_eta;
+Float_t         MC_tbar_afterFSR_phi;
+Float_t         MC_tbar_afterFSR_m;
+
+Float_t         MC_tbar_afterFSR_SC_pt;
+Float_t         MC_tbar_afterFSR_SC_eta;
+Float_t         MC_tbar_afterFSR_SC_phi;
+Float_t         MC_tbar_afterFSR_SC_m;
+
+
+t2->SetBranchAddress("eventNumber", &eventNumber);
+t2->SetBranchAddress("MC_Wdecay2_from_tbar_pdgId", &MC_Wdecay2_from_tbar_pdgId, &b_MC_Wdecay2_from_tbar_pdgId);
+t2->SetBranchAddress("MC_Wdecay1_from_t_pdgId", &MC_Wdecay1_from_t_pdgId, &b_MC_Wdecay1_from_t_pdgId);
+t2->SetBranchAddress("MC_Wdecay2_from_t_pdgId", &MC_Wdecay2_from_t_pdgId, &b_MC_Wdecay2_from_t_pdgId);
+t2->SetBranchAddress("MC_Wdecay1_from_tbar_pdgId", &MC_Wdecay1_from_tbar_pdgId, &b_MC_Wdecay1_from_tbar_pdgId);
+t2->SetBranchAddress("MC_Wdecay2_from_tbar_eta", &MC_Wdecay2_from_tbar_eta, &b_MC_Wdecay2_from_tbar_eta);
+t2->SetBranchAddress("MC_Wdecay2_from_tbar_m", &MC_Wdecay2_from_tbar_m, &b_MC_Wdecay2_from_tbar_m);
+t2->SetBranchAddress("MC_Wdecay2_from_t_phi", &MC_Wdecay2_from_t_phi, &b_MC_Wdecay2_from_t_phi);
+t2->SetBranchAddress("MC_Wdecay2_from_t_eta", &MC_Wdecay2_from_t_eta, &b_MC_Wdecay2_from_t_eta);
+t2->SetBranchAddress("MC_Wdecay2_from_t_m", &MC_Wdecay2_from_t_m, &b_MC_Wdecay2_from_t_m);
+t2->SetBranchAddress("MC_Wdecay1_from_tbar_phi", &MC_Wdecay1_from_tbar_phi, &b_MC_Wdecay1_from_tbar_phi);
+t2->SetBranchAddress("MC_Wdecay1_from_tbar_eta", &MC_Wdecay1_from_tbar_eta, &b_MC_Wdecay1_from_tbar_eta);
+t2->SetBranchAddress("MC_Wdecay1_from_tbar_pt", &MC_Wdecay1_from_tbar_pt, &b_MC_Wdecay1_from_tbar_pt);
+t2->SetBranchAddress("MC_Wdecay1_from_t_phi", &MC_Wdecay1_from_t_phi, &b_MC_Wdecay1_from_t_phi);
+t2->SetBranchAddress("MC_Wdecay1_from_t_eta", &MC_Wdecay1_from_t_eta, &b_MC_Wdecay1_from_t_eta);
+t2->SetBranchAddress("MC_b_from_t_phi", &MC_b_from_t_phi, &b_MC_b_from_t_phi);
+t2->SetBranchAddress("MC_Wdecay1_from_t_pt", &MC_Wdecay1_from_t_pt, &b_MC_Wdecay1_from_t_pt);
+t2->SetBranchAddress("MC_b_from_tbar_pt", &MC_b_from_tbar_pt, &b_MC_b_from_tbar_pt);
+t2->SetBranchAddress("MC_b_from_t_pt", &MC_b_from_t_pt, &b_MC_b_from_t_pt);
+t2->SetBranchAddress("MC_b_from_t_m", &MC_b_from_t_m, &b_MC_b_from_t_m);
+t2->SetBranchAddress("MC_Wdecay2_from_t_pt", &MC_Wdecay2_from_t_pt, &b_MC_Wdecay2_from_t_pt);
+t2->SetBranchAddress("MC_W_from_tbar_phi", &MC_W_from_tbar_phi, &b_MC_W_from_tbar_phi);
+t2->SetBranchAddress("MC_W_from_tbar_eta", &MC_W_from_tbar_eta, &b_MC_W_from_tbar_eta);
+t2->SetBranchAddress("MC_W_from_tbar_pt", &MC_W_from_tbar_pt, &b_MC_W_from_tbar_pt);
+t2->SetBranchAddress("MC_W_from_t_pt", &MC_W_from_t_pt, &b_MC_W_from_t_pt);
+t2->SetBranchAddress("MC_t_beforeFSR_eta", &MC_t_beforeFSR_eta, &b_MC_t_beforeFSR_eta);
+t2->SetBranchAddress("MC_W_from_t_m", &MC_W_from_t_m, &b_MC_W_from_t_m);
+t2->SetBranchAddress("MC_t_beforeFSR_m", &MC_t_beforeFSR_m, &b_MC_t_beforeFSR_m);
+t2->SetBranchAddress("MC_t_beforeFSR_phi", &MC_t_beforeFSR_phi, &b_MC_t_beforeFSR_phi);
+t2->SetBranchAddress("MC_ttbar_afterFSR_beforeDecay_pt", &MC_ttbar_afterFSR_beforeDecay_pt, &b_MC_ttbar_afterFSR_beforeDecay_pt);
+t2->SetBranchAddress("MC_Wdecay2_from_tbar_phi", &MC_Wdecay2_from_tbar_phi, &b_MC_Wdecay2_from_tbar_phi);
+t2->SetBranchAddress("MC_ttbar_afterFSR_beforeDecay_phi", &MC_ttbar_afterFSR_beforeDecay_phi, &b_MC_ttbar_afterFSR_beforeDecay_phi);
+t2->SetBranchAddress("MC_Wdecay1_from_t_m", &MC_Wdecay1_from_t_m, &b_MC_Wdecay1_from_t_m);
+t2->SetBranchAddress("MC_W_from_t_eta", &MC_W_from_t_eta, &b_MC_W_from_t_eta);
+t2->SetBranchAddress("MC_tbar_beforeFSR_m", &MC_tbar_beforeFSR_m, &b_MC_tbar_beforeFSR_m);
+t2->SetBranchAddress("MC_Wdecay2_from_tbar_pt", &MC_Wdecay2_from_tbar_pt, &b_MC_Wdecay2_from_tbar_pt);
+t2->SetBranchAddress("MC_Wdecay1_from_tbar_m", &MC_Wdecay1_from_tbar_m, &b_MC_Wdecay1_from_tbar_m);
+t2->SetBranchAddress("MC_b_from_tbar_phi", &MC_b_from_tbar_phi, &b_MC_b_from_tbar_phi);
+t2->SetBranchAddress("MC_ttbar_afterFSR_beforeDecay_m", &MC_ttbar_afterFSR_beforeDecay_m, &b_MC_ttbar_afterFSR_beforeDecay_m);
+t2->SetBranchAddress("MC_ttbar_afterFSR_eta", &MC_ttbar_afterFSR_eta, &b_MC_ttbar_afterFSR_eta);
+t2->SetBranchAddress("MC_b_from_tbar_eta", &MC_b_from_tbar_eta, &b_MC_b_from_tbar_eta);
+t2->SetBranchAddress("MC_b_from_t_eta", &MC_b_from_t_eta, &b_MC_b_from_t_eta);
+t2->SetBranchAddress("MC_ttbar_beforeFSR_pt", &MC_ttbar_beforeFSR_pt, &b_MC_ttbar_beforeFSR_pt);
+t2->SetBranchAddress("MC_ttbar_beforeFSR_m", &MC_ttbar_beforeFSR_m, &b_MC_ttbar_beforeFSR_m);
+t2->SetBranchAddress("MC_ttbar_beforeFSR_eta", &MC_ttbar_beforeFSR_eta, &b_MC_ttbar_beforeFSR_eta);
+t2->SetBranchAddress("MC_ttbar_afterFSR_beforeDecay_eta", &MC_ttbar_afterFSR_beforeDecay_eta, &b_MC_ttbar_afterFSR_beforeDecay_eta);
+t2->SetBranchAddress("MC_t_afterFSR_SC_pt", &MC_t_afterFSR_SC_pt, &b_MC_t_afterFSR_SC_pt);
+t2->SetBranchAddress("MC_ttbar_beforeFSR_phi", &MC_ttbar_beforeFSR_phi, &b_MC_ttbar_beforeFSR_phi);
+t2->SetBranchAddress("MC_t_beforeFSR_pt", &MC_t_beforeFSR_pt, &b_MC_t_beforeFSR_pt);
+t2->SetBranchAddress("MC_t_afterFSR_m", &MC_t_afterFSR_m, &b_MC_t_afterFSR_m);
+t2->SetBranchAddress("MC_tbar_beforeFSR_pt", &MC_tbar_beforeFSR_pt, &b_MC_tbar_beforeFSR_pt);
+t2->SetBranchAddress("MC_t_afterFSR_pt", &MC_t_afterFSR_pt, &b_MC_t_afterFSR_pt);
+t2->SetBranchAddress("MC_t_afterFSR_phi", &MC_t_afterFSR_phi, &b_MC_t_afterFSR_phi);
+t2->SetBranchAddress("MC_tbar_afterFSR_eta", &MC_tbar_afterFSR_eta, &b_MC_tbar_afterFSR_eta);
+t2->SetBranchAddress("MC_t_afterFSR_SC_m", &MC_t_afterFSR_SC_m, &b_MC_t_afterFSR_SC_m);
+t2->SetBranchAddress("MC_tbar_afterFSR_phi", &MC_tbar_afterFSR_phi, &b_MC_tbar_afterFSR_phi);
+t2->SetBranchAddress("MC_tbar_afterFSR_SC_phi", &MC_tbar_afterFSR_SC_phi, &b_MC_tbar_afterFSR_SC_phi);
+t2->SetBranchAddress("MC_t_afterFSR_SC_phi", &MC_t_afterFSR_SC_phi, &b_MC_t_afterFSR_SC_phi);
+t2->SetBranchAddress("MC_b_from_tbar_m", &MC_b_from_tbar_m, &b_MC_b_from_tbar_m);
+t2->SetBranchAddress("MC_tbar_beforeFSR_eta", &MC_tbar_beforeFSR_eta, &b_MC_tbar_beforeFSR_eta);
+t2->SetBranchAddress("MC_tbar_beforeFSR_phi", &MC_tbar_beforeFSR_phi, &b_MC_tbar_beforeFSR_phi);
+t2->SetBranchAddress("MC_tbar_afterFSR_m", &MC_tbar_afterFSR_m, &b_MC_tbar_afterFSR_m);
+t2->SetBranchAddress("MC_ttbar_afterFSR_phi", &MC_ttbar_afterFSR_phi, &b_MC_ttbar_afterFSR_phi);
+t2->SetBranchAddress("MC_ttbar_afterFSR_m", &MC_ttbar_afterFSR_m, &b_MC_ttbar_afterFSR_m);
+t2->SetBranchAddress("MC_t_afterFSR_SC_eta", &MC_t_afterFSR_SC_eta, &b_MC_t_afterFSR_SC_eta);
+t2->SetBranchAddress("MC_tbar_afterFSR_pt", &MC_tbar_afterFSR_pt, &b_MC_tbar_afterFSR_pt);
+t2->SetBranchAddress("MC_W_from_tbar_m", &MC_W_from_tbar_m, &b_MC_W_from_tbar_m);
+t2->SetBranchAddress("MC_ttbar_afterFSR_pt", &MC_ttbar_afterFSR_pt, &b_MC_ttbar_afterFSR_pt);
+t2->SetBranchAddress("MC_tbar_afterFSR_SC_m", &MC_tbar_afterFSR_SC_m, &b_MC_tbar_afterFSR_SC_m);
+t2->SetBranchAddress("MC_tbar_afterFSR_SC_eta", &MC_tbar_afterFSR_SC_eta, &b_MC_tbar_afterFSR_SC_eta);
+t2->SetBranchAddress("MC_W_from_t_phi", &MC_W_from_t_phi, &b_MC_W_from_t_phi);
+t2->SetBranchAddress("MC_t_afterFSR_eta", &MC_t_afterFSR_eta, &b_MC_t_afterFSR_eta);
+t2->SetBranchAddress("MC_tbar_afterFSR_SC_pt", &MC_tbar_afterFSR_SC_pt, &b_MC_tbar_afterFSR_SC_pt);
+
+--------------------------------nominal--------------------------------------------
+
+ULong64_t       eventNumber;
+vector<float>   *el_pt;
+vector<float>   *el_eta;
+vector<float>   *el_cl_eta;
+vector<float>   *el_phi;
+vector<float>   *el_e;
+vector<float>   *el_charge;
+vector<float>   *el_topoetcone20;
+vector<float>   *el_ptvarcone20;
+vector<char>    *el_CF;
+vector<float>   *el_d0sig;
+vector<float>   *el_delta_z0_sintheta;
+vector<int>     *el_true_type;
+vector<int>     *el_true_origin;
+vector<int>     *el_true_firstEgMotherTruthType;
+vector<int>     *el_true_firstEgMotherTruthOrigin;
+vector<int>     *el_true_firstEgMotherPdgId;
+vector<int>     *el_true_IFFclass;
+vector<char>    *el_true_isPrompt;
+vector<char>    *el_true_isChargeFl;
+vector<float>   *mu_pt;
+vector<float>   *mu_eta;
+vector<float>   *mu_phi;
+vector<float>   *mu_e;
+vector<float>   *mu_charge;
+vector<float>   *mu_topoetcone20;
+vector<float>   *mu_ptvarcone30;
+vector<float>   *mu_d0sig;
+vector<float>   *mu_delta_z0_sintheta;
+vector<int>     *mu_true_type;
+vector<int>     *mu_true_origin;
+vector<int>     *mu_true_IFFclass;
+vector<char>    *mu_true_isPrompt;
+vector<float>   *jet_pt;
+vector<float>   *jet_eta;
+vector<float>   *jet_phi;
+vector<float>   *jet_e;
+vector<float>   *jet_jvt;
+vector<int>     *jet_truthflav;
+vector<int>     *jet_truthPartonLabel;
+vector<char>    *jet_isTrueHS;
+vector<int>     *jet_truthflavExtended;
+vector<char>    *jet_isbtagged_DL1r_77;
+vector<int>     *jet_tagWeightBin_DL1r_Continuous;
+vector<float>   *jet_DL1r;
+vector<float>   *jet_DL1r_pb;
+vector<float>   *jet_DL1r_pc;
+vector<float>   *jet_DL1r_pu;
+Float_t         met_met;
+Float_t         met_phi;
+
+
+fChain->SetBranchAddress("eventNumber", &eventNumber, &b_eventNumber);
+fChain->SetBranchAddress("el_pt", &el_pt, &b_el_pt);
+fChain->SetBranchAddress("el_eta", &el_eta, &b_el_eta);
+fChain->SetBranchAddress("el_cl_eta", &el_cl_eta, &b_el_cl_eta);
+fChain->SetBranchAddress("el_phi", &el_phi, &b_el_phi);
+fChain->SetBranchAddress("el_e", &el_e, &b_el_e);
+fChain->SetBranchAddress("el_charge", &el_charge, &b_el_charge);
+fChain->SetBranchAddress("el_topoetcone20", &el_topoetcone20, &b_el_topoetcone20);
+fChain->SetBranchAddress("el_ptvarcone20", &el_ptvarcone20, &b_el_ptvarcone20);
+fChain->SetBranchAddress("el_CF", &el_CF, &b_el_CF);
+fChain->SetBranchAddress("el_d0sig", &el_d0sig, &b_el_d0sig);
+fChain->SetBranchAddress("el_delta_z0_sintheta", &el_delta_z0_sintheta, &b_el_delta_z0_sintheta);
+fChain->SetBranchAddress("el_true_type", &el_true_type, &b_el_true_type);
+fChain->SetBranchAddress("el_true_origin", &el_true_origin, &b_el_true_origin);
+fChain->SetBranchAddress("el_true_firstEgMotherTruthType", &el_true_firstEgMotherTruthType, &b_el_true_firstEgMotherTruthType);
+fChain->SetBranchAddress("el_true_firstEgMotherTruthOrigin", &el_true_firstEgMotherTruthOrigin, &b_el_true_firstEgMotherTruthOrigin);
+fChain->SetBranchAddress("el_true_firstEgMotherPdgId", &el_true_firstEgMotherPdgId, &b_el_true_firstEgMotherPdgId);
+fChain->SetBranchAddress("el_true_IFFclass", &el_true_IFFclass, &b_el_true_IFFclass);
+fChain->SetBranchAddress("el_true_isPrompt", &el_true_isPrompt, &b_el_true_isPrompt);
+fChain->SetBranchAddress("el_true_isChargeFl", &el_true_isChargeFl, &b_el_true_isChargeFl);
+
+fChain->SetBranchAddress("mu_pt", &mu_pt, &b_mu_pt);
+fChain->SetBranchAddress("mu_eta", &mu_eta, &b_mu_eta);
+fChain->SetBranchAddress("mu_phi", &mu_phi, &b_mu_phi);
+fChain->SetBranchAddress("mu_e", &mu_e, &b_mu_e);
+fChain->SetBranchAddress("mu_charge", &mu_charge, &b_mu_charge);
+fChain->SetBranchAddress("mu_topoetcone20", &mu_topoetcone20, &b_mu_topoetcone20);
+fChain->SetBranchAddress("mu_ptvarcone30", &mu_ptvarcone30, &b_mu_ptvarcone30);
+fChain->SetBranchAddress("mu_d0sig", &mu_d0sig, &b_mu_d0sig);
+fChain->SetBranchAddress("mu_delta_z0_sintheta", &mu_delta_z0_sintheta, &b_mu_delta_z0_sintheta);
+fChain->SetBranchAddress("mu_true_type", &mu_true_type, &b_mu_true_type);
+fChain->SetBranchAddress("mu_true_origin", &mu_true_origin, &b_mu_true_origin);
+fChain->SetBranchAddress("mu_true_IFFclass", &mu_true_IFFclass, &b_mu_true_IFFclass);
+fChain->SetBranchAddress("mu_true_isPrompt", &mu_true_isPrompt, &b_mu_true_isPrompt);
+fChain->SetBranchAddress("jet_pt", &jet_pt, &b_jet_pt);
+fChain->SetBranchAddress("jet_eta", &jet_eta, &b_jet_eta);
+fChain->SetBranchAddress("jet_phi", &jet_phi, &b_jet_phi);
+fChain->SetBranchAddress("jet_e", &jet_e, &b_jet_e);
+fChain->SetBranchAddress("jet_jvt", &jet_jvt, &b_jet_jvt);
+fChain->SetBranchAddress("jet_truthflav", &jet_truthflav, &b_jet_truthflav);
+fChain->SetBranchAddress("jet_truthPartonLabel", &jet_truthPartonLabel, &b_jet_truthPartonLabel);
+fChain->SetBranchAddress("jet_isTrueHS", &jet_isTrueHS, &b_jet_isTrueHS);
+fChain->SetBranchAddress("jet_truthflavExtended", &jet_truthflavExtended, &b_jet_truthflavExtended);
+fChain->SetBranchAddress("jet_isbtagged_DL1r_77", &jet_isbtagged_DL1r_77, &b_jet_isbtagged_DL1r_77);
+fChain->SetBranchAddress("jet_tagWeightBin_DL1r_Continuous", &jet_tagWeightBin_DL1r_Continuous, &b_jet_tagWeightBin_DL1r_Continuous);
+fChain->SetBranchAddress("jet_DL1r", &jet_DL1r, &b_jet_DL1r);
+fChain->SetBranchAddress("jet_DL1r_pb", &jet_DL1r_pb, &b_jet_DL1r_pb);
+fChain->SetBranchAddress("jet_DL1r_pc", &jet_DL1r_pc, &b_jet_DL1r_pc);
+fChain->SetBranchAddress("jet_DL1r_pu", &jet_DL1r_pu, &b_jet_DL1r_pu);
+fChain->SetBranchAddress("met_met", &met_met, &b_met_met);
+fChain->SetBranchAddress("met_phi", &met_phi, &b_met_phi);

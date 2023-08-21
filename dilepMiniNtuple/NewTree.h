@@ -21,6 +21,8 @@ Float_t         t_weight_bTagSF_DL1r_77;
 Float_t         t_weight_jvt;
 ULong64_t       t_eventNumber;
 UInt_t          t_runNumber;
+Float_t         t_MC_W_from_t_phi;
+Float_t         t_met_phi;
 
 // std::vector<float>   truth_mc_pow_pt;
 // std::vector<float>   truth_mc_pow_eta;
