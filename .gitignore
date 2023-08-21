@@ -139,6 +139,7 @@ dmypy.json
 # c++
 *.o
 *.out
+.__*
 
 # data source and outpus
 *.tar.gz
