@@ -16,8 +16,12 @@
 
 #include "NewTree.h"
 #include "NewTree.C"
+#include <time.h>
+
 
 int main(int argc, char** argv){
+  clock_t start, end;
+  start = clock();
 
   //StdArg arg(argc,argv);
   std::cout<<"ConnectTrees.C"<<std::endl;
@@ -152,6 +156,10 @@ int main(int argc, char** argv){
     NewTree (tree_name, inFile ,out_file);
   out_file->Close();
   cout<<"File closed.\n";
+
+  end = clock();   
+  cout<<"time = "<<double(end-start)/CLOCKS_PER_SEC<<"s"<<endl;
+
   return 0;
 
 }
