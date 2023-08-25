@@ -82,26 +82,26 @@ def getp4s_lep(p4s_el, p4s_mu):
         if len(p4s_lep) != 2: print("error: not 2 leptons")
     return p4s_lep
 
-def minimax(p4s_a, p4s_b):
-    """
-    get the index of minimax pair b+l, return index_a, index_b
-    a is the particle fixed for max a1b? in first step
-    b is the particle searched for max a1b? in first step
+# def minimax(p4s_a, p4s_b):
+#     """
+#     get the index of minimax pair b+l, return index_a, index_b
+#     a is the particle fixed for max a1b? in first step
+#     b is the particle searched for max a1b? in first step
     
-    """
-    masses = np.empty((2,2))
-    for i, p4_a in enumerate(p4s_a):
-        for j, p4_b in enumerate(p4s_b):
-            # get the max m_b?li, save the idx
-            masses[i,j] = (p4_a + p4_b).M()/1000
-    # use minimax method to get the pair:
+#     """
+#     masses = np.empty((2,2))
+#     for i, p4_a in enumerate(p4s_a):
+#         for j, p4_b in enumerate(p4s_b):
+#             # get the max m_b?li, save the idx
+#             masses[i,j] = (p4_a + p4_b).M()/1000
+#     # use minimax method to get the pair:
 
-    # the indices of b with first and second lep (max(bl)):
-    indices = np.array([masses[0].argmax(),masses[1].argmax()])
-    # the index of l with minimum max
-    index2 = np.array([masses[0,indices[0]], masses[1,indices[1]]]).argmin()
-    # return the found index of 1st obj, 2nd obj
-    return index2, indices[index2] 
+#     # the indices of b with first and second lep (max(bl)):
+#     indices = np.array([masses[0].argmax(),masses[1].argmax()])
+#     # the index of l with minimum max
+#     index2 = np.array([masses[0,indices[0]], masses[1,indices[1]]]).argmin()
+#     # return the found index of 1st obj, 2nd obj
+#     return index2, indices[index2] 
 
 def minimax_cross(p4s_a, p4s_b):
     """
@@ -137,16 +137,16 @@ def p4_from_pt_eta_phi_m(tree, prefix):
     return p4
 
 
-def get_leptons_from_truth(prefixes, tree):
+def get_leptons_from_truth(prefixes, tree, withtau = False):
     """
     return el/mu p4 in the order of [lep from t, lep from tbar]
     """
     p4s_truth_lep = [] # first element from t, second element from tbar
+    lepton_id = [11, 13]
+    if withtau: lepton_id.append(15)
     for j, prefix in enumerate(prefixes):
-        id = getattr(tree, prefix + "_pdgId")
-        # if abs(id) == 11 or abs(id) == 13 or abs(id) == 15:
-        if abs(id) == 11 or abs(id) == 13:
-                # skip tau events
+        id = getattr(tree, prefix + "_pdgId")   
+        if abs(id) in lepton_id:
                 p4s_truth_lep.append(p4_from_pt_eta_phi_m(tree, prefix))
     
     return p4s_truth_lep
