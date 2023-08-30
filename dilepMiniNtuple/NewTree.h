@@ -74,6 +74,15 @@ Float_t         t_MC_tbar_beforeFSR_pt;
 Float_t         t_MC_tbar_beforeFSR_eta;
 Float_t         t_MC_tbar_beforeFSR_phi;
 Float_t         t_MC_tbar_beforeFSR_m;
+int             t_parton1;
+int             t_parton2;
+Float_t         t_yt_reweight0;
+Float_t         t_yt_reweight1;
+Float_t         t_yt_reweight2;
+Float_t         t_yt_reweight3;
+Float_t         t_yt_reweight4;
+int             is_gg;
+
 
 std::vector<float>   *t_el_pt;
 std::vector<float>   *t_el_eta;

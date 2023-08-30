@@ -1,6 +1,7 @@
 
 #include "NewTree.h"
 #include "NominalTree.h"
+#include "yt_reweight_new.C"
 
 #include <iostream>
 #include <iomanip>
@@ -35,7 +36,7 @@ void SetBranches(TTree *out_tree){
   // out_tree->Branch("t_MC_W_from_t_phi", &t_MC_W_from_t_phi, "MC_W_from_t_phi/F");
   // out_tree->Branch("t_met_phi", &t_met_phi,"met_phi/F");
 
-// truth 
+// from truth 
 out_tree->Branch("MC_Wdecay2_from_tbar_pdgId", &t_MC_Wdecay2_from_tbar_pdgId, "MC_Wdecay2_from_tbar_pdgId/I");
 out_tree->Branch("MC_Wdecay2_from_tbar_eta", &t_MC_Wdecay2_from_tbar_eta, "MC_Wdecay2_from_tbar_eta/F");
 out_tree->Branch("MC_Wdecay2_from_tbar_m", &t_MC_Wdecay2_from_tbar_m, "MC_Wdecay2_from_tbar_m/F");
@@ -84,6 +85,13 @@ out_tree->Branch("MC_tbar_beforeFSR_m", &t_MC_tbar_beforeFSR_m, "MC_tbar_beforeF
 out_tree->Branch("MC_tbar_beforeFSR_pt", &t_MC_tbar_beforeFSR_pt, "MC_tbar_beforeFSR_pt/F");
 out_tree->Branch("MC_tbar_beforeFSR_eta", &t_MC_tbar_beforeFSR_eta, "MC_tbar_beforeFSR_eta/F");
 out_tree->Branch("MC_tbar_beforeFSR_phi", &t_MC_tbar_beforeFSR_phi, "MC_tbar_beforeFSR_phi/F");
+out_tree->Branch("t_yt_reweight0",  &t_yt_reweight0, "yt_reweight0/F");
+out_tree->Branch("t_yt_reweight1",  &t_yt_reweight1, "yt_reweight1/F");
+out_tree->Branch("t_yt_reweight2",  &t_yt_reweight2, "yt_reweight2/F");
+out_tree->Branch("t_yt_reweight3",  &t_yt_reweight3, "yt_reweight3/F");
+out_tree->Branch("t_yt_reweight4",  &t_yt_reweight4, "yt_reweight4/F");
+out_tree->Branch("is_gg", &is_gg, "is_gg/I");
+
 
 // nominal branches
 out_tree->Branch("el_pt", &t_el_pt);
@@ -221,6 +229,8 @@ void NewTree(std::string treename, const TString &File, TFile *MCfile){
   Float_t         MC_tbar_beforeFSR_eta;
   Float_t         MC_tbar_beforeFSR_phi;
   Float_t         MC_tbar_beforeFSR_m;
+  std::vector<int>     *PDFinfo_PDGID1;
+  std::vector<int>     *PDFinfo_PDGID2;
 
 
   ULong64_t eventNumber = 0;
@@ -272,6 +282,8 @@ void NewTree(std::string treename, const TString &File, TFile *MCfile){
   MC_tbar_beforeFSR_eta = 0;
   MC_tbar_beforeFSR_phi = 0;
   MC_tbar_beforeFSR_m = 0;
+  PDFinfo_PDGID1 = 0;
+  PDFinfo_PDGID2 = 0;
   
   
   // nominal variable
@@ -350,6 +362,9 @@ void NewTree(std::string treename, const TString &File, TFile *MCfile){
     t2->SetBranchAddress("MC_tbar_beforeFSR_pt", &MC_tbar_beforeFSR_pt);
     t2->SetBranchAddress("MC_tbar_beforeFSR_eta", &MC_tbar_beforeFSR_eta);
     t2->SetBranchAddress("MC_tbar_beforeFSR_phi", &MC_tbar_beforeFSR_phi);
+    t2->SetBranchAddress("PDFinfo_PDGID1", &PDFinfo_PDGID1);
+    t2->SetBranchAddress("PDFinfo_PDGID2", &PDFinfo_PDGID2);
+
 
     for (UInt_t iEvent = 0; ; ++iEvent) { //truth event loop starts
       Long64_t ientry = t2->LoadTree(iEvent);
@@ -453,7 +468,11 @@ void NewTree(std::string treename, const TString &File, TFile *MCfile){
         t_MC_tbar_beforeFSR_pt   =  MC_tbar_beforeFSR_pt   ;     
         t_MC_tbar_beforeFSR_eta  =  MC_tbar_beforeFSR_eta  ;     
         t_MC_tbar_beforeFSR_phi  =  MC_tbar_beforeFSR_phi  ;     
-        t_MC_tbar_beforeFSR_m    =  MC_tbar_beforeFSR_m    ;   
+        t_MC_tbar_beforeFSR_m    =  MC_tbar_beforeFSR_m    ;  
+        t_parton1 = PDFinfo_PDGID1->at(0);
+        t_parton2 = PDFinfo_PDGID2->at(0);
+        is_gg = -1; //initialze
+
         // write varibles in nominal tree
         t_el_pt       =    el_pt        ;
         t_el_eta      =    el_eta       ;
@@ -479,6 +498,26 @@ void NewTree(std::string treename, const TString &File, TFile *MCfile){
         t_mu_delta_z0_sintheta =  mu_delta_z0_sintheta    ;
         t_jet_isbtagged_DL1r_77 = jet_isbtagged_DL1r_77   ; 
 
+        // t_yt_reweight:
+
+        int parton;
+        if (abs(t_parton1) == 21 or abs(t_parton2) == 21 ) {
+          parton = 21;
+          is_gg = 1;
+        }
+        else {
+          parton = abs(t_parton1);
+          is_gg = 0;
+          }
+        
+        ROOT::Math::PtEtaPhiMVector p4t(t_MC_t_beforeFSR_pt,t_MC_t_beforeFSR_eta,t_MC_t_beforeFSR_phi,t_MC_t_beforeFSR_m);
+        ROOT::Math::PtEtaPhiMVector p4tbar(t_MC_tbar_beforeFSR_pt,t_MC_tbar_beforeFSR_eta,t_MC_tbar_beforeFSR_phi,t_MC_tbar_beforeFSR_m);
+        t_yt_reweight0 = yt_reweight(p4t, p4tbar, parton, 0.);
+        t_yt_reweight1 = yt_reweight(p4t, p4tbar, parton, 1.);
+        t_yt_reweight2 = yt_reweight(p4t, p4tbar, parton, 2.);
+        t_yt_reweight3 = yt_reweight(p4t, p4tbar, parton, 3.);
+        t_yt_reweight4 = yt_reweight(p4t, p4tbar, parton, 4.);
+        // std::cout << t_yt_reweight << std::endl;
 
         if (!(iEvt % 1000)){
           cout<< " iEvt " << iEvt<< endl;
