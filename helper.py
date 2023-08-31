@@ -175,4 +175,5 @@ def deltaR_match(p4s_truth, p4s_nom, maxdR = 0.4):
     if indices[0] == indices[1]: return []
     return p4s_match
 
-
+def get_yts(tree):
+    return [getattr(tree, "t_yt_reweight0"), getattr(tree, "t_yt_reweight1"), getattr(tree, "t_yt_reweight2") , getattr(tree, "t_yt_reweight3"), getattr(tree, "t_yt_reweight4")]
