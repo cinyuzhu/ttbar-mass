@@ -177,3 +177,17 @@ def deltaR_match(p4s_truth, p4s_nom, maxdR = 0.4):
 
 def get_yts(tree):
     return [getattr(tree, "t_yt_reweight0"), getattr(tree, "t_yt_reweight1"), getattr(tree, "t_yt_reweight2") , getattr(tree, "t_yt_reweight3"), getattr(tree, "t_yt_reweight4")]
+
+def ratio_beautify(ratio):
+    ratio.SetStats(False)
+    ratio.SetTitle("")
+    ratio.GetXaxis().SetLabelOffset(0.005)
+    ratio.GetXaxis().SetLabelSize(0.18)
+    # ratio.GetXaxis().SetTitleOffset(1.1)
+    ratio.GetXaxis().SetTitleSize(0.18)
+    ratio.GetYaxis().SetLabelSize(0.16)
+    ratio.GetYaxis().SetTitleSize(0.16)
+    ratio.GetYaxis().SetTitleOffset(0.3)
+    ratio.GetYaxis().SetNdivisions(506)
+
+    return ratio
